@@ -1,0 +1,181 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.main{
+    width: 100%;
+    background-image: url(background_img.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 109vh;
+    display: block;
+}
+.nav_bar{
+    width: 1200px;
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+    
+}
+.logo {
+    color: gold;
+    float: left;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 100px;
+    padding-top: 25px;
+}
+.nav_link {
+    width: 400px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 250px;
+    float: left;
+}
+ul li {
+    list-style: none;
+    margin-left: 65px;
+    margin-top: 20px;
+}
+ul li a {
+    text-decoration: none;
+    color: gold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    transition: 0.5s ease-in-out;
+    font-size: larger;
+}
+ul li a:hover {
+    color: lightgreen;
+}
+.search {
+    width: 400px;
+    float: left;
+    margin-left: 270px;
+    display: flex;
+    flex-direction: row;
+}
+.srch {
+    width: 200px;
+    height: 40px;
+    border: 1px, solid, red;
+    background: transparent;
+    color: grey;
+    float: left;
+    padding: 10px;
+    margin-top: 20px;
+    border-right: none;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.search a button {
+    width: 100px;
+    height: 40px;
+    margin-top: 20px;
+    border-left: none;
+    background-color: rgba(255, 213, 0, 0.616);
+    border: 1px, solid, red;
+    cursor: pointer;
+    color: white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.content {
+    margin-top: 200px; 
+    margin-left: 50px;  
+    padding-left: 30px;
+    font-family: cursive;
+    color: lavenderblush;
+}
+.paragraph2 {
+    margin-top: 90px;
+}
+#landscapes {
+    color: lightseagreen;
+}
+#hikes {
+    color: coral;
+}
+ /* places section */
+.rubrika {
+    flex: 0 1 calc(20% -10%);
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.rubrika img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+/* book section */
+.book {
+    margin-top: 15px;
+    margin-left: 5px;
+}
+.heading {
+    text-align: center;
+    padding: 40px 0;
+}
+.heading span {
+    font-size: 56px;
+    background: rgba(124, 222, 205, 0.2);
+    color: green;
+    border-radius: 8px;
+    padding: 32px 16px;
+}
+.heading span.space {
+    background: none;
+}
+.book .row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+}
+.book .row .image {
+    flex: 1 1 40rem;
+}
+.book .row .image img {
+    width: 100%;
+}
+.book .row form {
+    flex: 1 1 40rem;
+    padding: 2rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    border-radius: .5rem;
+}
+.book .row form .inputBox {
+    padding: 8px 0;
+}
+.book .row form .inputBox input {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+    color: #333;
+    text-transform: none;
+}
+.submit {
+    display: inline-block;
+    margin-top: 16px;
+    background-color: green;
+    color: #fff;
+    padding: 12px 48px;
+    border: 3px solid green;
+    cursor: pointer;
+    font-size: 26px;
+    transition: 0.3s ease-in;
+}
+.submit:hover {
+    background: rgba(0, 0, 0, 0.2);
+    color: green;
+}
+.book .row form .inputBox h3 {
+    font-size: 32px;
+    padding: 16px 0;
+    color: #666;
+}
