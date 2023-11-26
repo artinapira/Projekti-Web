@@ -2,14 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins",sans-serif;
 }
 body {
     display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
-    background:url('i.jpg') no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -22,6 +18,7 @@ body {
     color: #fff;
     border-radius: 10px;
     padding: 30px 40px;
+    margin-left: 300px;
 }
 .wrapper h1{
     font-size: 36px;

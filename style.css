@@ -11,23 +11,24 @@
     display: block;
 }
 .nav_bar{
-    width: 1200px;
+    max-width: 1200px;
     height: 75px;
+    margin-left: 10px;
     display: flex;
     flex-direction: row;
-    
 }
 .logo {
     color: gold;
     float: left;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    padding-left: 100px;
+    padding-left: 120px;
     padding-top: 25px;
 }
 .nav_link {
     width: 400px;
     height: 75px;
+    margin-left: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,7 +54,7 @@ ul li a:hover {
 .search {
     width: 400px;
     float: left;
-    margin-left: 270px;
+    margin-left: 370px;
     display: flex;
     flex-direction: row;
 }
@@ -62,7 +63,7 @@ ul li a:hover {
     height: 40px;
     border: 1px, solid, red;
     background: transparent;
-    color: grey;
+    color: black;
     float: left;
     padding: 10px;
     margin-top: 20px;
@@ -84,9 +85,15 @@ ul li a:hover {
 }
 .content {
     margin-top: 200px; 
-    margin-left: 50px;  
-    padding-left: 30px;
+    margin-left: 30px;
     font-family: cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.paragraphs h1 {
     color: lavenderblush;
 }
 .paragraph2 {
@@ -179,3 +186,4 @@ ul li a:hover {
     padding: 16px 0;
     color: #666;
 }
+
