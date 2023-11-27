@@ -2,15 +2,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins",sans-serif;
 }
 
 body {
+<<<<<<< HEAD:Login-SignUp/login-signup.css
     display: grid;
     justify-content: center;
     align-items: center;
+=======
+    display: flex;
+>>>>>>> a8846263cba43a98569f3d8ffca25d03457b7a3c:stylee.css
     min-height: 100vh;
-    background:url('i.jpg') no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -23,7 +25,11 @@ body {
     color: #fff;
     border-radius: 10px;
     padding: 30px 40px;
+<<<<<<< HEAD:Login-SignUp/login-signup.css
     position: relative;
+=======
+    margin-left: 300px;
+>>>>>>> a8846263cba43a98569f3d8ffca25d03457b7a3c:stylee.css
 }
 .wrapper .form-box{
     width: 100%;
