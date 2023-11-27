@@ -2,17 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
 }
-
 body {
-<<<<<<< HEAD:Login-SignUp/login-signup.css
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
-=======
-    display: flex;
->>>>>>> a8846263cba43a98569f3d8ffca25d03457b7a3c:stylee.css
     min-height: 100vh;
+    background:url('i.jpg') no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -25,35 +22,25 @@ body {
     color: #fff;
     border-radius: 10px;
     padding: 30px 40px;
-<<<<<<< HEAD:Login-SignUp/login-signup.css
     position: relative;
-=======
-    margin-left: 300px;
->>>>>>> a8846263cba43a98569f3d8ffca25d03457b7a3c:stylee.css
 }
 .wrapper .form-box{
     width: 100%;
     padding: 40px;
 }
+
 .form-box h1{
     font-size: 36px;
     text-align: center;
 }
-.inputbox{
+.inputbox {
     position: relative;
-    max-width: 310px;
-    margin: 30px 0;
-    height: 50px;
-}
-.wrapper.inputbox{
     width: 100%;
     height: 50px;
-    background: transparent;
     margin: 30px 0;
 }
- 
-.inputbox input{
-    widows: 100%;
+.inputbox input {
+    width: 100%;
     height: 100%;
     background: transparent;
     border: none;
@@ -64,8 +51,7 @@ body {
     color: #fff;
     padding: 20px 45px 20px 20px;
 }
-.SignUp{display: none;}
-.input-box input::placeholder {
+.inputbox input::placeholder {
     color: #fff;
 }
 .inputbox i {
@@ -76,40 +62,24 @@ body {
     font-size: 20px;
     line-height: 56px;
 }
-.inputbox label{
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 1rem;
-    pointer-events: none;
-    transition: all 0.5s ease-in-out;
-}
-.remember-forget{
-    margin: 15px 0 15px;
-    font-size: 14.5px;
+.remember-forgot {
     display: flex;
-    justify-content: center;
-
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
 }
-.remember-forget label input{
-    margin-right: 3px;
+.remember-forgot label input {
     accent-color:#fff ;
     margin-right: 3px;
-    zoom: 1.4;
-    vertical-align: sub;
-    
 }
-.remember-forget label a{
-    color: white;
+.remember-forgot a {
+    color: #fff;
     text-decoration: none;
-
 }
-.remember-forget label a:hover{
+.remember-forgot a:hover {
     text-decoration: underline;
-}
 
+}
 .wrapper .btn {
     width: 100%;
     height: 45px;
@@ -123,7 +93,6 @@ body {
     color: #333;
     font-weight: 600;
 }
-
 .wrapper .register-link {
     font-size: 14.5px;
     text-align: center;
