@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Swissaround</title>
     <link rel="stylesheet" href="login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <box-icon type='solid' name='envelope'></box-icon>
@@ -14,13 +14,13 @@
         <div class="wrapper">
             <div class="form-box login">
                 <h1>Login</h1>
-            <form action="#">
+            <form action="#" onsubmit="return validateForm()">
                 <div class="inputbox">
-                <input type="text" placeholder="Username" required>
+                <input type="text" id="username" placeholder="Username" required>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="inputbox">
-                <input type="password" placeholder="Password" required>
+                <input type="password" id="password" placeholder="Password" required>
                 <i class='bx bxs-lock-alt'></i>
             </div>
            
@@ -37,5 +37,31 @@
     </form>
         </div>
         </div>
+
+        <script>
+            function validateForm() {
+                var name = document.getElementById('username').value;
+                var password = document.getElementById('password').value;
+
+                var nameRegex = /^ [a-zA-Z\s]+$/;
+                if (!nameRegex.test(name)) {
+                    alert('Please enter a valid username');
+                    return false;
+                }
+
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email');
+                    return false;
+                }
+
+                if (password.length<6) {
+                    alert('Please must be at least 6 characters');
+                    return false;
+
+                }
+                return true;
+            }
+        </script>
 </body>
 </html>

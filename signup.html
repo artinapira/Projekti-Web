@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Swissaround</title>
     <link rel="stylesheet" href="login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <box-icon type='solid' name='envelope'></box-icon>
@@ -13,33 +13,63 @@
     
     <div class="wrapper">
         <div class="form-box login">
-        <h1>Sign Up</h1>
-        <form action="#">
-        <div class="inputbox">
-            <input type="text" placeholder="Username" required  >
-            <i class='bx bxs-user'></i>
-            </div>
-            <div class="inputbox">
-                <input type="email" placeholder="Email" required>
-                <i class="bx bxs-envelope"></i>
-            </div>
-            <div class="inputbox">
-                <input type="password" placeholder="Password" required>
-                <i class='bx bxs-lock-alt'></i>
-            </div>
+            <h1>Sign Up</h1>
+            <form action="#" onsubmit="return validateForm()">
+                <div class="inputbox">
+                    <input type="text" id="username" placeholder="Username" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="inputbox">
+                    <input type="email" id="email" placeholder="Email" required>
+                    <i class="bx bxs-envelope"></i>
+                </div>
+                <div class="inputbox">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
         
-            <div class="remember-forgot">
-                <label><input type="checkbox"> I agree to these 
-                <a href="#"> Terms & Conditions</a></label>
-            </div>
-            <button type="submit" class="btn">Sign Up</button>
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> I agree to these 
+                    <a href="#"> Terms & Conditions</a></label>
+                </div>
+                <button type="submit" class="btn">Sign Up</button>
 
-            <div class="register-link"></div>
-            Already a member? <a href="./Login.html">
-                Log in here 
-            </div>
-        </form>
+                <div class="register-link">
+                    Already a member? 
+                    <a href="./Login.html">Log in here</a>
+                </div>
+                
+            </form>
         </div>
-        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username');
+            var email = document.getElementById('email');
+            var password = document.getElementById('password');
+
+            var nameRegex = /^[a-zA-Z\s]+$/;
+            if (!nameRegex.test(name)) {
+                alert('Please enter a valid username');
+                return false;
+            }
+
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email');
+                return false;
+            }
+
+            if (password.length<6) {
+                alert('Please must be at least 6 characters');
+                return false;
+
+            }
+            return true;
+        }
+
+
+    </script>
 </body>
 </html>

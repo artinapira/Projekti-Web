@@ -28,7 +28,7 @@
 .nav_link {
     width: 400px;
     height: 75px;
-    margin-left: 60px;
+    margin-left: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,7 +54,7 @@ ul li a:hover {
 .search {
     width: 400px;
     float: left;
-    margin-left: 370px;
+    margin-left: 230px;
     display: flex;
     flex-direction: row;
 }
@@ -87,7 +87,7 @@ ul li a:hover {
 .content {
     margin-top: 200px; 
     margin-left: 30px;
-    font-family: cursive;
+    font-family: 'Times New Roman', Times, serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -221,6 +221,7 @@ ul li a:hover {
 }
 .book .row form .inputBox h3 {
     font-size: 32px;
+    font-weight: lighter;
     padding: 16px 0;
     color: #666;
 }

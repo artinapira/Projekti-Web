@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Swissaround</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="stylee.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -23,7 +22,8 @@
                     <li class="link"><a href="Places.html">Places</a></li>
                     <li class="link"><a href="Blogs.html">Blogs</a></li>
                     <li class="link"><a href="Book.html">Book</a></li>
-                    <li class="link"><a href="">Services</a></li>
+                    <li class="link"><a href="Services.html">Services</a></li>
+                    <li class="link"><a href="Login.html">Login/Register</a></li>
                 </ul>
             </div>
 
@@ -39,58 +39,11 @@
                 <h1 class="paragraph1">Discover top <span id="hikes">hikes</span> in Switzerland <br> and tips about vacations.</h1>
                 <h1 class="paragraph2">Explore the charming <br><span id="landscapes">Landscapes</span> of Switzerland</h1>
             </div>
-            <div class="wrapper">
-                <form id="contactForm" action="">
-                    <h1>Login</h1>
-                    <div class="input-box">
-                        <input type="text" placeholder="Username" required id="emri">
-                        <i class='bx bxs-user'></i>
-                    </div>
-                    <div class="input-box">
-                        <input type="password" placeholder="Password" required id="password">
-                        <i class='bx bxs-lock-alt'></i>
-                    </div>
-                    <div class="remember-forgot">
-                        <label><input type="checkbox">Remember me
-                        </label>
-                        <a href="#">Forgot password?</a>
-                    </div>
-                    <button type="submit" class="btn">Login</button>
-                    <div class="register-link">
-                        <p>Don't have an account? <a href="#">Register</a></p>
-                    </div>
-                </form>
-            </div>
         </div>
 
     </div>
 
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function (event) {
-            // Ndalojmë dërgimin e formës
-            event.preventDefault();
     
-            // Hapi i validimit
-            validateContactForm();
-        });
-    
-        function validateContactForm() {
-            // Marrim vlerat e fushave nga forma
-            var name = document.getElementById('emri').value;
-            var email = document.getElementById('password').value;
-    
-            // Kryejmë validimet e nevojshme
-            if (emri.trim() === '' || password.trim() === '') {
-                alert('Ju lutem plotësoni të gjitha fushat.');
-                return;
-            }
-    
-            // Këtu mund të shtoni validime shtesë nëse janë të nevojshme
-    
-            // Nëse gjithçka është në rregull, mund të dërgojmë formën
-            document.getElementById('contactForm').submit();
-        }
-    </script>
     
 </body>
 </html>
