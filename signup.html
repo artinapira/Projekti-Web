@@ -14,25 +14,29 @@
     <div class="wrapper">
         <div class="form-box login">
             <h1>Sign Up</h1>
-            <form action="#" onsubmit="return validateForm()">
+            <form action="#">
                 <div class="inputbox">
                     <input type="text" id="username" placeholder="Username" required>
                     <i class='bx bxs-user'></i>
+                    <div class="error-message" id="usernameError"></div>
+                    
                 </div>
                 <div class="inputbox">
                     <input type="email" id="email" placeholder="Email" required>
                     <i class="bx bxs-envelope"></i>
+                    <div class="error-message" id="emailError"></div>
                 </div>
                 <div class="inputbox">
                     <input type="password" id="password" placeholder="Password" required>
                     <i class='bx bxs-lock-alt'></i>
+                    <div class="error-message" id="passwordError"></div>
                 </div>
         
                 <div class="remember-forgot">
                     <label><input type="checkbox"> I agree to these 
                     <a href="#"> Terms & Conditions</a></label>
                 </div>
-                <button type="submit" class="btn">Sign Up</button>
+                <button type="submit" class="btn" onclick="validateForm()">Sign Up</button>
 
                 <div class="register-link">
                     Already a member? 
@@ -44,29 +48,33 @@
     </div>
 
     <script>
+        let usernameRegex = /[a-zA-Z]{8,15}$/;
+        let emailRegex = /[a-zA-Z0-9._-]+@+[a-z]+\.+[a-z]{3}/;
+        let passwordRegex = /^[A-Z][a-z][0-9]{3}/;
+
         function validateForm() {
-            var username = document.getElementById('username');
-            var email = document.getElementById('email');
-            var password = document.getElementById('password');
+            let usernameInput = document.getElementById('username');
+            let emailInput = document.getElementById('email');
+            let passwordInput = document.getElementById('password');
 
-            var nameRegex = /^[a-zA-Z\s]+$/;
-            if (!nameRegex.test(name)) {
-                alert('Please enter a valid username');
-                return false;
+
+            usernameError.innerText = '';
+            emailError.innerText = '';
+            passwordError.innerText = '';
+
+            if (!usernameRegex.test(usernameInput.value)) {
+                usernameError.innerText = 'invalid username';
+                return;
+            }
+            if (!emailRegex.test(emailInput.value)) {
+                emailError.innerText = 'invalid email';
+                return;
+            }
+            if (!passwordRegex.test(passwordInput.value)) {
+                passwordError.innerText = 'invalid password';
+                return;
             }
 
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email');
-                return false;
-            }
-
-            if (password.length<6) {
-                alert('Please must be at least 6 characters');
-                return false;
-
-            }
-            return true;
         }
 
 
