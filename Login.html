@@ -14,14 +14,21 @@
         <div class="wrapper">
             <div class="form-box login">
                 <h1>Login</h1>
-            <form action="#" onsubmit="return validateForm()">
+            <form action="#">
                 <div class="inputbox">
                 <input type="text" id="username" placeholder="Username" required>
                 <i class='bx bxs-user'></i>
+                <div class="error-message" id="usernameError"></div>
             </div>
             <div class="inputbox">
                 <input type="password" id="password" placeholder="Password" required>
+<<<<<<< HEAD
                 <i class='bx bxs-hide-eye-icon'></i>
+=======
+                <i class='bx bxs-lock-alt'></i>
+                <div class="error-message" id="passwordError"></div>
+                
+>>>>>>> 4b28fa242702b94e5e40ead073113fd3d5db07b9
             </div>
            
             <div class="remember-forgot">
@@ -29,7 +36,7 @@
                 </label>
                 <a href="#">Forgot password? </a>
             </div>
-            <button type="submit" class="btn"> Login</button>
+            <button type="submit" class="btn" onclick="validateForm()"> Login</button>
             <div class="register-link">
                 <p>Don't have an account? <a href="signup.html" class="register-link">Register</a></p>
                 <div class="contanier"></div>
@@ -45,28 +52,26 @@
         </div>
 
         <script>
+            let usernameRegex = /[a-zA-Z]{8,15}$/;
+            let passwordRegex = /^[A-Z][a-z][0-9]{3}/;
             function validateForm() {
-                var name = document.getElementById('username').value;
-                var password = document.getElementById('password').value;
+                let usernameInput = document.getElementById('username');
+                let passwordInput = document.getElementById('password');
 
-                var nameRegex = /^ [a-zA-Z\s]+$/;
-                if (!nameRegex.test(name)) {
-                    alert('Please enter a valid username');
-                    return false;
+                usernameError.innerText = '';
+                passwordError.innerText = '';
+
+         
+                if (!usernameRegex.test(usernameInput.value)) {
+                    usernameError.innerText = 'invalid username';
+                    return;
+                }
+            
+                if (!passwordRegex.test(passwordInput.value)) {
+                    passwordError.innerText = 'invalid password';
+                    return;
                 }
 
-                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    alert('Please enter a valid email');
-                    return false;
-                }
-
-                if (password.length<6) {
-                    alert('Please must be at least 6 characters');
-                    return false;
-
-                }
-                return true;
             }
         </script>
 </body>
