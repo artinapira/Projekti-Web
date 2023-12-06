@@ -48,9 +48,9 @@
     </div>
 
     <script>
-        let usernameRegex = /[a-zA-Z]{8,15}$/;
+        let usernameRegex = /^[A-Z][a-z]{7,15}$/;
         let emailRegex = /[a-zA-Z0-9._-]+@+[a-z]+\.+[a-z]{3}/;
-        let passwordRegex = /^[A-Z][a-z][0-9]{3}/;
+        let passwordRegex = /[a-zA-Z]{8,15}/;
 
         function validateForm() {
             let usernameInput = document.getElementById('username');
