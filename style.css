@@ -37,7 +37,7 @@
 }
 ul li {
     list-style: none;
-    margin-left: 65px;
+    margin-left: 60px;
     margin-top: 20px;
 }
 ul li a {
@@ -51,10 +51,30 @@ ul li a {
 ul li a:hover {
     color: lightgreen;
 }
+.login {
+    width: 120px;
+    float: left;
+    margin-left: 130px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.login a {
+    text-decoration: none;
+}
+.login button:hover {
+    cursor: pointer;
+}
+.login a button {
+    width: 70px;
+    height: 40px;
+    border-radius: none;
+    border: 1px solid grey;
+}
 .search {
     width: 400px;
     float: left;
-    margin-left: 230px;
+    margin-left: 20px;
     display: flex;
     flex-direction: row;
 }
@@ -264,7 +284,7 @@ ul li a:hover {
     flex-direction: column;
 }
 .blog-text span {
-    color: #f33c3c;
+    color: lightskyblue;
     font-size: 0.9rem;
 }
 .blog-text .blog-title {
@@ -273,7 +293,7 @@ ul li a:hover {
     color: #272727;
 }
 .blog-text .blog-title:hover {
-    color: #f33c3c;
+    color: lightskyblue;
     transition: all ease 0.3s;
 }
 .blog-text p {
@@ -290,10 +310,25 @@ ul li a:hover {
     color: #0f0f0f;
 }
 .blog-text a:hover {
-    color: #f33c3c;
+    color: lightskyblue;
     transition: all ease 0.3s;
 }
-@media ( max-width:1250) {
+
+.previousNext {
+    color: lightskyblue;
+    display: flex;
+    justify-content: space-between;
+}
+.previousNext button {
+    width: 120px;
+    height: 35px;
+    background-color: rgb(9, 205, 139);
+}
+.previousNext a {
+    text-decoration: none;
+    padding: 30px;
+}
+@media ( max-width:1250px) {
     .blog-box {
         width: 300px;
     }

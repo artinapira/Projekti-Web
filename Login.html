@@ -22,13 +22,9 @@
             </div>
             <div class="inputbox">
                 <input type="password" id="password" placeholder="Password" required>
-<<<<<<< HEAD
-                <i class='bx bxs-hide-eye-icon'></i>
-=======
                 <i class='bx bxs-lock-alt'></i>
-                <div class="error-message" id="passwordError"></div>
-                
->>>>>>> 4b28fa242702b94e5e40ead073113fd3d5db07b9
+                <div class="error-message" id ="passwordError"></div>
+
             </div>
            
             <div class="remember-forgot">
@@ -52,8 +48,8 @@
         </div>
 
         <script>
-            let usernameRegex = /[a-zA-Z]{8,15}$/;
-            let passwordRegex = /^[A-Z][a-z][0-9]{3}/;
+            let usernameRegex = /^[A-Z][a-z]{7,15}$/;
+            let passwordRegex = /[a-zA-Z0-9]{8,15}$/;
             function validateForm() {
                 let usernameInput = document.getElementById('username');
                 let passwordInput = document.getElementById('password');
