@@ -351,9 +351,13 @@ ul li a:hover {
 footer{
     background: #333;
     position: relative;
-    bottom:0 ;
+    bottom:0;
+    /*bottom:0;
+    top:20px;*/
     width: 100%;
+    padding:20px;
 }
+
 .main-content{
     display: flex;
     color: #fff;
