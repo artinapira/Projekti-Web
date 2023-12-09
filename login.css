@@ -15,6 +15,7 @@ body {
 }
 .wrapper {
     width: 420px;
+    height: 100%;
     background:transparent;
     border:2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
@@ -23,12 +24,29 @@ body {
     border-radius: 10px;
     padding: 30px 40px;
     position: relative;
+
+}
+.icon-close{
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+}
+.icon-close i{
+    font-size: 32px;
+    color: #333;
 }
 .wrapper .form-box{
     width: 100%;
     padding: 40px;
 }
-
 .form-box h1{
     font-size: 36px;
     text-align: center;
@@ -96,7 +114,8 @@ body {
 .wrapper .register-link {
     font-size: 14.5px;
     text-align: center;
-    margin: 20px 0 15px;
+    font-weight: 500;
+    margin: 25px 0 15px;
 
 }
 .register-link p a {
@@ -107,4 +126,24 @@ body {
 }
 .register-link p a:hover {
     text-decoration: underline;
+}
+.liw{
+    padding-top: 15px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.icons a{
+    text-decoration: none;
+    color: #fff;
+}
+.icons ion-icon{
+    color:#fff;
+    font-size: 30px;
+    padding-left: 12px;
+    padding-top: 5px;
+    transition: 0.3s ease;
+
+}
+.icons ion-icon:hover{
+    color: purple;
 }

@@ -12,6 +12,9 @@
     
    
         <div class="wrapper">
+            <span class="icon-close">
+                <i class='bx bx-x'></i>
+            </span>
             <div class="form-box login">
                 <h1>Login</h1>
             <form action="#">
@@ -35,17 +38,21 @@
             <button type="submit" class="btn" onclick="validateForm()"> Login</button>
             <div class="register-link">
                 <p>Don't have an account? <a href="signup.html" class="register-link">Register</a></p>
+            </div>
+                <p class="liw">Log in with</p>
                 <div class="contanier"></div>
+            
+            <div class="icons">
+                <a href="https://www.facebook.com/"><ion-icon name ="logo-facebook"></ion-icon></a>
+                <a href="https://www.instagram.com/"><ion-icon name ="logo-instagram"></ion-icon></a>
+                <a href="https://twitter.com/"><ion-icon name ="logo-twitter"></ion-icon></a>
+                <a href="https://www.google.com/"><ion-icon name ="logo-google"></ion-icon></a>
+                <a href="https://www.skype.com/en/"><ion-icon name ="logo-skype"></ion-icon></a>
+
             </div>
     </form>
         </div>
-        <div class="line"></div>
-        <div class="media-options">
-            <a href="#" class="field facebook">
-                <i class="bx bxl-facebook facebook-icon"></i>
-                <span>Login with Facebook</span>
-            </a>
-        </div>
+       <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 
         <script>
             let usernameRegex = /^[A-Z][a-z]{7,15}$/;
