@@ -12,9 +12,9 @@
     
     
     <div class="wrapper">
-        <span class="icon-close">
+        <a href="home.html"><span class="icon-close">
             <i class='bx bx-x'></i>
-        </span>
+        </span></a>
         <div class="form-box login">
             <h1>Sign Up</h1>
             <form action="#">
@@ -80,16 +80,17 @@
 
             if (!usernameRegex.test(usernameInput.value)) {
                 usernameError.innerText = 'invalid username';
-                return;
+                return false;
             }
             if (!emailRegex.test(emailInput.value)) {
                 emailError.innerText = 'invalid email';
-                return;
+                return false;
             }
             if (!passwordRegex.test(passwordInput.value)) {
                 passwordError.innerText = 'invalid password';
-                return;
+                return false;
             }
+            return true;
 
         }
 
