@@ -16,6 +16,22 @@
                 <h2>Swissaround</h2>
             </div>
 
+            <div class="sidebar">
+                
+                <ul>
+                    <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="Places.html">Places</a></li>
+                    <li><a href="Blogs.html">Blogs</a></li>
+                    <li><a href="Book.html">Book</a></li>
+                    <li><a href="Services.html">Services</a></li>
+                    <li><a href="Gallery.html">Gallery</a></li>
+                    <li><a href="Login.html"><button>Log in</button></a></li>
+                    <li><input type="search" placeholder="Search places"><a href=""><button>Search</button></a></li>
+                </ul>
+                
+            </div>       
+
             <div>
                 <ul class="nav_link">
                     <li class="link"><a href="home.html">Home</a></li>
@@ -34,6 +50,12 @@
             <div class="search">
                 <input class="srch" type="search" placeholder="Search places">
                 <a href=""><button>Search</button></a>
+            </div>
+
+            <div class="menu_icon">
+                <ul>
+                    <li onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+                </ul>
             </div>
 
         </div>
@@ -102,6 +124,15 @@
             <p>© All rights reserved 2023 Swissaround</p>
         </div>
     </footer>
-    
+    <script>
+        function showSidebar(){
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'flex';
+        }
+        function hideSidebar(){
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
