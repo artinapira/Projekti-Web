@@ -1,3 +1,13 @@
+<?php
+session_start();
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to the login page if not logged in
+    header('Location: Login.php');
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +22,7 @@
 
         <div class="nav_bar">
             <div class="logo">
-                <img src="logo.png" alt="">
+                <img src="Img/logo.png" alt="">
                 <h2>Swissaround</h2>
             </div>
 
@@ -20,13 +30,13 @@
                 
                 <ul>
                     <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="Places.html">Places</a></li>
-                    <li><a href="Blogs.html">Blogs</a></li>
-                    <li><a href="Book.html">Book</a></li>
-                    <li><a href="Services.html">Services</a></li>
-                    <li><a href="Gallery.html">Gallery</a></li>
-                    <li><a href="Login.html"><button>Log in</button></a></li>
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="Places.php">Places</a></li>
+                    <li><a href="Blogs.php">Blogs</a></li>
+                    <li><a href="Book.php">Book</a></li>
+                    <li><a href="Services.php">Services</a></li>
+                    <li><a href="Gallery.php">Gallery</a></li>
+                    <li><a href="Logout.php"><button>Log out</button></a></li>
                     <li><input type="search" placeholder="Search places"><a href=""><button>Search</button></a></li>
                 </ul>
                 
@@ -34,17 +44,17 @@
 
             <div>
                 <ul class="nav_link">
-                    <li class="link"><a href="home.html">Home</a></li>
-                    <li class="link"><a href="Places.html">Places</a></li>
-                    <li class="link"><a href="Blogs.html">Blogs</a></li>
-                    <li class="link"><a href="Book.html">Book</a></li>
-                    <li class="link"><a href="Services.html">Services</a></li>
-                    <li class="link"><a href="Gallery.html">Gallery</a></li>
+                    <li class="link"><a href="home.php">Home</a></li>
+                    <li class="link"><a href="Places.php">Places</a></li>
+                    <li class="link"><a href="Blogs.php">Blogs</a></li>
+                    <li class="link"><a href="Book.php">Book</a></li>
+                    <li class="link"><a href="Services.php">Services</a></li>
+                    <li class="link"><a href="Gallery.php">Gallery</a></li>
                 </ul>
             </div>
 
             <div class="login">
-                <a href="Login.html"><button>Log in</button></a>
+                <a href="Logout.php"><button>Log out</button></a>
             </div>
             
             <div class="search">

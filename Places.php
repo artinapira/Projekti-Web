@@ -1,3 +1,13 @@
+<?php
+session_start();
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to the login page if not logged in
+    header('Location: Login.php');
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +24,7 @@
         <div class="nav_bar">
 
             <div class="logo">
-                <img src="logo.png" alt="">
+                <img src="Img/logo.png" alt="">
                 <h2>Swissaround</h2>
             </div>
 
@@ -22,13 +32,13 @@
                 
                 <ul>
                     <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="Places.html">Places</a></li>
-                    <li><a href="Blogs.html">Blogs</a></li>
-                    <li><a href="Book.html">Book</a></li>
-                    <li><a href="Services.html">Services</a></li>
-                    <li><a href="Gallery.html">Gallery</a></li>
-                    <li><a href="Login.html"><button>Log in</button></a></li>
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="Places.php">Places</a></li>
+                    <li><a href="Blogs.php">Blogs</a></li>
+                    <li><a href="Book.php">Book</a></li>
+                    <li><a href="Services.php">Services</a></li>
+                    <li><a href="Gallery.php">Gallery</a></li>
+                    <li><a href="Login.php"><button>Log in</button></a></li>
                     <li><input type="search" placeholder="Search places"><a href=""><button>Search</button></a></li>
                 </ul>
                 
@@ -36,17 +46,17 @@
 
             <div>
                 <ul class="nav_link">
-                    <li class="link"><a href="home.html">Home</a></li>
-                    <li class="link"><a href="Places.html">Places</a></li>
-                    <li class="link"><a href="Blogs.html">Blogs</a></li>
-                    <li class="link"><a href="Book.html">Book</a></li>
-                    <li class="link"><a href="Services.html">Services</a></li>
-                    <li class="link"><a href="Gallery.html">Gallery</a></li>
+                    <li class="link"><a href="home.php">Home</a></li>
+                    <li class="link"><a href="Places.php">Places</a></li>
+                    <li class="link"><a href="Blogs.php">Blogs</a></li>
+                    <li class="link"><a href="Book.php">Book</a></li>
+                    <li class="link"><a href="Services.php">Services</a></li>
+                    <li class="link"><a href="Gallery.php">Gallery</a></li>
                 </ul>
             </div>
 
             <div class="login">
-                <a href="Login.html"><button>Log in</button></a>
+                <a href="Login.php"><button>Log in</button></a>
             </div>
 
             <div class="search">
@@ -75,7 +85,7 @@
 
             <div class="box-container">
                 <div class="box">
-                    <img src="zurich.png" alt="" class="img">
+                    <img src="Img/zurich.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Zurich</h3>
                         <p>“Zurich is a small gem with only 450,000 inhabitants, yet it's the largest and most vibrant city in 
@@ -90,11 +100,11 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="brienz.png" alt="" class="img">
+                    <img src="Img/brienz.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Brienz</h3>
                         <p>Brienz shines its beauty with its collection of dark-timber chalets sprouting red geraniums, tooting steam train and views across
@@ -108,12 +118,12 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
 
                 <div class="box">
-                    <img src="interlaken.png" alt="" class="img">
+                    <img src="Img/interlaken.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Interlaken</h3>
                         <p>Tucked between Lake Thun and Lake Brienz, travelers can find the town of Interlaken. It’s well known as 
@@ -127,12 +137,12 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 
                 <div class="box">
-                    <img src="st.moritz.png" alt="" class="img">
+                    <img src="Img/st.moritz.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>St.Moritz</h3>
                         <p>Find a little slice of luxury in St. Mortiz. The high-end town marries some of the best skiing in the world 
@@ -146,11 +156,11 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="ticino.png" alt="" class="img">
+                    <img src="Img/ticino.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Ticino</h3>
                         <p>History lovers, this one is for you. Ticino, a town in southern Switzerland, is home to not one but two UNESCO 
@@ -164,11 +174,11 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="swiss national park.png" alt="" class="img">
+                    <img src="Img/swiss national park.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Swiss National Park</h3>
                         <p>Get one more taste of Switzerland’s incredible natural beauty with a visit to Swiss National Park, located in 
@@ -182,12 +192,12 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 
                 <div class="box">
-                    <img src="quinten.png" alt="" class="img">
+                    <img src="Img/quinten.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Quinten</h3>
                         <p>Quinten, which sits on the shores of Lake Walen, is the place to be for those who love to see everything on 
@@ -201,12 +211,12 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
 
                 <div class="box">
-                    <img src="lake lucerne.png" alt="" class="img">
+                    <img src="Img/lake lucerne.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Lake Lucerne</h3>
                         <p>Lake Lucerne offers some of Switzerland’s most fantastic views. The glittering lake stretches on for 43 
@@ -220,11 +230,11 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="rapperswil.png" alt="" class="img">
+                    <img src="Img/rapperswil.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Rapperswil</h3>
                         <p>Make your way about an hour northeast of Lake Lucerne to the town of Rapperswil, which sits on Lake Zurich. 
@@ -238,12 +248,12 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 
                 <div class="box">
-                    <img src="mount rigri kulm.png" alt="" class="img">
+                    <img src="Img/mount rigri kulm.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Mount Rigri Kulm</h3>
                         <p>Make your way to the top of Mount Rigi to get a view of three countries at once. The mountain, located between 
@@ -257,11 +267,11 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="montreux.png" alt="" class="img">
+                    <img src="Img/montreux.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Montreux</h3>
                         <p>Montreux, positioned on the shores of Lake Geneva, is loved for its palm-lined promenade, castles, and gorgeous
@@ -275,11 +285,11 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="rhine falls.png" alt="" class="img">
+                    <img src="Img/rhine falls.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Rhine Falls</h3>
                         <p>Feel the power of Mother Nature at Rhine Falls, Europe's largest waterfall. Visitors can marvel at the 
@@ -293,11 +303,11 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="oeschinen lake.png" alt="" class="img">
+                    <img src="Img/oeschinen lake.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Oeschinen Lake</h3>
                         <p>Explore another UNESCO World Heritage Site in Switzerland with a visit to the glacial Oeschinen Lake. Like many
@@ -311,11 +321,11 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="geneva.png" alt="" class="img">
+                    <img src="Img/geneva.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Geneva</h3>
                         <p>Geneva, the second-largest city in Switzerland, is renowned for its international organizations like the United
@@ -329,11 +339,11 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="zermatt.png" alt="" class="img">
+                    <img src="Img/zermatt.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Zermatt</h3>
                         <p>Zermatt, which sits in the shadow of the Matterhorn, is one more car-free village that combines rustic charm 
@@ -348,12 +358,12 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 
                 <div class="box">
-                    <img src="appenzell.png" alt="" class="img">
+                    <img src="Img/appenzell.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Appenzell</h3>
                         <p>Want another car-free adventure? Head to the picturesque town of Appenzell in northeast Switzerland. The small 
@@ -367,11 +377,11 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="bern.png" alt="" class="img">
+                    <img src="Img/bern.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Bern</h3>
                         <p>Bern, Switzerland's capital, offers an enticing mix of old and new. The city has retained much of its medieval 
@@ -385,11 +395,11 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="gruyeres.png" alt="" class="img">
+                    <img src="Img/gruyeres.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Gruyères</h3>
                         <p>If you’re into cheese, you’ve likely heard the name Gruyère before. Visit its namesake town, located in 
@@ -403,11 +413,11 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="lavaux vineyard.png" alt="" class="img">
+                    <img src="Img/lavaux vineyard.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Lavaux Vineyard</h3>
                         <p>Wine lovers will adore visiting Lavaux Vineyard, the nation’s largest contiguous vineyard area that goes on for
@@ -421,11 +431,11 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="lugano.png" alt="" class="img">
+                    <img src="Img/lugano.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Lugano</h3>
                         <p>Find a little taste of Italy in Lugano, the largest Italian-speaking city in Switzerland (which counts Italian 
@@ -439,11 +449,11 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="stoos.png" alt="" class="img">
+                    <img src="Img/stoos.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Stoos</h3>
                         <p>Want to feel like you’re on top of the world? Head to Stoos, a town located at 4,265 feet. The entire 
@@ -457,11 +467,11 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 <div class="box">
-                    <img src="lej nair.png" alt="" class="img">
+                    <img src="Img/lej nair.png" alt="" class="img">
                     <div class="places_container">
                         <h3><i class="fas fa-map-marker-alt"></i>Lej Nair</h3>
                         <p>In the picturesque surroundings of St. Moritz, where Lake Staz is considered the jewel of the region, 
@@ -476,7 +486,7 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="price">$90.00 <span>$120.00</span></div>
-                        <a href="Book.html"><input type="submit" class="submit" value="Book"></a>
+                        <a href="Book.php"><input type="submit" class="submit" value="Book"></a>
                     </div>
                 </div>
                 

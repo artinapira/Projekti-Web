@@ -12,25 +12,22 @@
     
     
     <div class="wrapper">
-        <a href="home.html"><span class="icon-close">
-            <i class='bx bx-x'></i>
-        </span></a>
         <div class="form-box login">
             <h1>Sign Up</h1>
-            <form action="#">
+            <form action="signup.php" method="post">
                 <div class="inputbox">
-                    <input type="text" id="username" placeholder="Username" required>
+                    <input type="text" id="username" name="username" placeholder="Username" required>
                     <i class='bx bxs-user'></i>
                     <div class="error-message" id="usernameError"></div>
                     
                 </div>
                 <div class="inputbox">
-                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
                     <i class="bx bxs-envelope"></i>
                     <div class="error-message" id="emailError"></div>
                 </div>
                 <div class="inputbox">
-                    <input type="password" id="password" placeholder="Password" required>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
                     <i class='bx bxs-lock-alt'></i>
                     <div class="error-message" id ="passwordError"></div>
 
@@ -40,11 +37,12 @@
                     <label><input type="checkbox"> I agree to these 
                     <a href="#"> Terms & Conditions</a></label>
                 </div>
-                <button type="submit" class="btn" onclick="validateForm()">Sign Up</button>
+                <button type="submit" name="registerBtn" class="btn" onclick="validateForm()">Sign Up</button>
+                
 
                 <div class="register-link">
                     Already a member? 
-                    <a href="./Login.html">Log in here</a>
+                    <a href="./Login.php">Log in here</a>
                 </div>
                 <p class="liw">Sign up with</p>
                 <div class="contanier"></div>
@@ -96,5 +94,6 @@
 
 
     </script>
+    <?php include_once 'controller/registerController.php';?>
 </body>
 </html>
