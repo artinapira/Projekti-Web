@@ -1,13 +1,13 @@
 <?php
 
-$userId = $_GET['id'];
-include_once '../repository/userRepository.php';
+$bookingId = $_GET['id'];
+include_once '../repository/bookingRepository.php';
 
 
 
-$userRepository = new UserRepository();
+$bookingRepository = new BookingRepository();
 
-$userRepository->deleteUser($userId);
+$bookingRepository->deleteBooking($bookingId);
 
 header("location:dashboard.php");
 

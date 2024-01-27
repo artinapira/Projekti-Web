@@ -1,5 +1,5 @@
 <?php 
-include __DIR__ . '/../database/databaseConnection.php';
+include_once __DIR__ . '/../database/databaseConnection.php';
 
 class UserRepository{
     private $connection;

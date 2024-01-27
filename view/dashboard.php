@@ -7,8 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    
-
+    <h1>USERS</h1>
     <table border="1">
         <tr>
             <th>ID</th>
@@ -46,7 +45,10 @@
              
         ?>
     </table>
+    <br>
+    <br>
 
+    <h1>BOOKINGS</h1>
     <table border="1">
         <tr>
             <th>ID</th>
@@ -81,6 +83,89 @@
                     <td>$booking[leaving]</td>
                     <td><a href='bookingEdit.php?id=$booking[id]'>Edit</a> </td>
                     <td><a href='bookingDelete.php?id=$booking[id]'>Delete</a></td>
+                     
+                </tr>
+                ";
+            }
+
+             
+             
+        ?>
+    </table>
+    <br>
+    <br>
+    <h1>Blogs</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>USERNAME</th>
+            <th>TITLE</th>
+            <th>CONTENT</th>
+            <th>IMAGE</th>
+            <th>DATE</th>
+            <th>EDIT DATE</th>
+            <th>Edit</th>
+            <th>Delete</th>
+                 
+        </tr>
+
+        <?php 
+            include_once '../repository/blogsRepository.php';
+
+            $blogRepository = new BlogRepository();
+
+            $blogs = $blogRepository->getAllBlogs();
+
+            foreach($blogs as $blog){
+                echo 
+                "
+                <tr>
+                    <td>$blog[id]</td>
+                    <td>$blog[user_name]</td>
+                    <td>$blog[title]</td>
+                    <td>$blog[content]</td>
+                    <td>$blog[image]</td>
+                    <td>$blog[date]</td>
+                    <td>$blog[editDate]</td>
+                    <td><a href='blogEdit.php?id=$blog[id]'>Edit</a> </td>
+                    <td><a href='blogDelete.php?id=$blog[id]'>Delete</a></td>
+                     
+                </tr>
+                ";
+            }
+
+             
+             
+        ?>
+    </table>
+    <br>
+    <br>
+    <h1>Gallery</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>IMAGE</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th><a href="galleryInsert.php">Insert</a></th>
+                 
+        </tr>
+
+        <?php 
+            include_once '../repository/galleryRepository.php';
+
+            $galleryRepository = new GalleryRepository();
+
+            $galleries = $galleryRepository->getAllGallery();
+
+            foreach($galleries as $gallery){
+                echo 
+                "
+                <tr>
+                    <td>$blog[id]</td>
+                    <td>$blog[image]</td>
+                    <td><a href='galleryEdit.php?id=$gallery[id]'>Edit</a> </td>
+                    <td><a href='galleryDelete.php?id=$gallery[id]'>Delete</a></td>
                      
                 </tr>
                 ";

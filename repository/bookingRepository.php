@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/../database/databaseConnection.php';
+include_once __DIR__ . '/../database/databaseConnection.php';
 
 class BookingRepository {
     private $connection;
@@ -56,11 +56,11 @@ class BookingRepository {
     function updateBooking($id,$user_id,$fromWhere,$whereTo,$howMany,$arrivals,$leaving){
         $conn = $this->connection;
 
-        $sql = "UPDATE book SET fromWhere=?, whereTo=?, howMany=?, arrivals=?, leaving=? WHERE id=?";
+        $sql = "UPDATE book SET fromWhere=?, whereTo=?, howMany=?, arrivals=?, leaving=? WHERE id=? AND user_id=?";
 
         $statement = $conn->prepare($sql);
 
-        $statement->execute([$fromWhere,$whereTo,$howMany,$arrivals,$leaving]);
+        $statement->execute([$fromWhere,$whereTo,$howMany,$arrivals,$leaving,$id,$user_id]);
 
         echo "<script>alert('update was successful'); </script>";
     } 

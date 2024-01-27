@@ -6,6 +6,11 @@ if (!isset($_SESSION['user_id'])) {
     header('Location: Login.php');
     exit();
 }
+include_once __DIR__ . '../controller/galleryController.php';
+include_once __DIR__ . '../repository/galleryRepository.php';
+
+$galleryRepository = new GalleryRepository();
+$galleries = $galleryRepository->getAllGallery();
 
 ?>
 <!DOCTYPE html>
@@ -74,10 +79,13 @@ if (!isset($_SESSION['user_id'])) {
         <div id="kontenti">
             <header>
             <h2>More images </h2>
-            <img id="slideshow" />
-            </header>
-            <button onclick="changeImg()">Next</button>
+            <?php foreach ($galleries as $gallery): ?>
+            <img class="gallery-image" src="<?php echo $gallery['image']; ?>" alt="Gallery Image">
+            <?php endforeach; ?>
+            <button id="prevBtn">Previous</button>
+            <button id="nextBtn">Next</button>
         </div>
+        
 
         <footer>
             <div class="main-content">
@@ -86,7 +94,7 @@ if (!isset($_SESSION['user_id'])) {
                     <h2>Company</h2>   
                     <div class="company">
                         <br>
-                        <p><a href="#">Home</a></p>
+                        <p><a href="home.php">Home</a></p>
                         <br>
                         <p><a href="#">About Us</a></p>
                         <br>
@@ -142,23 +150,34 @@ if (!isset($_SESSION['user_id'])) {
             const sidebar = document.querySelector('.sidebar');
             sidebar.style.display = 'none';
         }
-        let i = 0;
-        var imgArray = ['Img/img1.png','Img/img2.png','Img/img3.png','Img/img4.png',
-        'Img/img5.png','Img/img6.png','Img/img7.png','Img/img8.png','Img/img9.png',
-        'Img/img10.png','Img/img11.png','Img/img12.png'];
+        document.addEventListener('DOMContentLoaded', function() {
+        let images = document.querySelectorAll('.gallery-image');
+        let currentIndex = 0;
 
-        function changeImg(){
-            document.getElementById('slideshow').src = imgArray[i];
-
-            if(i< imgArray.length -1){
-                i++;
-            }
-            else{
-                i=0;
-            }
-            //setTimeout("changeImg()", 2600);
+        function showImage(index) {
+            images.forEach(function(image) {
+                image.style.display = 'none';
+            });
+            images[index].style.display = 'block';
         }
-        document.addEventListener(onload, changeImg());
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        }
+
+        // Show the first image when the page loads
+        showImage(currentIndex);
+
+        // Add event listeners to the Next and Previous buttons
+        document.querySelector('#nextBtn').addEventListener('click', nextImage);
+        document.querySelector('#prevBtn').addEventListener('click', prevImage);
+    });
     </script>
 </body>
-    </html>
+</html>

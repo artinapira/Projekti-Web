@@ -9,6 +9,15 @@ if (!isset($_SESSION['user_id'])) {
 
 // Access user information
 $userId = $_SESSION['user_id'];
+$username = $_SESSION['username'];
+
+
+include_once __DIR__ . '../controller/blogsController.php';
+include_once __DIR__ . '../repository/blogsRepository.php';
+
+$blogRepository = new BlogRepository();
+$blogs = $blogRepository->getAllBlogs();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,104 +94,30 @@ $userId = $_SESSION['user_id'];
             </h1>
             <div class="blogs-container">
 
+                <?php foreach ($blogs as $blog): ?>
                 <div class="blog-box">
                     <div class="blog-img">
-                        <img src="Img/vistit.png" alt="">
+                        <img src="<?php echo $blog['image']; ?>" alt="Blog Image">
                     </div>
                     <div class="blog-text">
-                        <span>21 October 2023</span>
-                        <a href="" class="blog-title">Why visit Switzerland?</a>
-                        <p>Switzerland is home to some of the most beautiful lakes in Europe, with crystal clear waters surrounded by 
-                            breathtaking mountain scenery. Lake Geneva, Lake Zurich, and Lake Lucerne are just a few examples of the many 
-                            lakes that offer a wide range of summer activities, from swimming and boating to relaxing on the shore. 
-                            Switzerland is geographically divided among the Swiss Plateau, the Alps and the Jura; the Alps occupy the 
-                            greater part of the territory, whereas most of the country's population of 9 million are concentrated on the 
-                            plateau, which hosts the largest cities and economic centres, including Zürich, Geneva and Basel.</p>
+                        <span>Date: <?php echo $blog['date']; ?></span>
+                        <?php if (!empty($blog['edit_date'])): ?>
+                        <span>Last Edited: <?php echo $blog['edit_date']; ?></span>
+                        <?php endif; ?>
+                        <span>Added by: <?php echo $blog['user_name']; ?></span>
+                        <a href="" class="blog-title"><?php echo $blog['title']; ?></a>
+                        <p><?php echo $blog['content']; ?></p>
                         <a href="">Read more</a>
                     </div>
                 </div>
-
-                <div class="blog-box">
-                    <div class="blog-img">
-                        <img src="Img/placesToVisit.png" alt="">
-                    </div>
-                    <div class="blog-text">
-                        <span>19 July 2023</span>
-                        <a href="" class="blog-title">Top 10 destinations</a>
-                        <p>1. Interlaken - The best place for top day trips
-                        2. Zurich - Holidays in the biggest city of switzerland
-                        3. Murren - Gimmelwald holidays at 1650meters
-                        4. Lauterbrunnen - Holidays with an impressive landscape.
-                        5. Iseltwald - Holidays in the fishing village directly at the lake of brienz
-                        6. Fälensee - Holidays for hikers directly at the lake Fälensee
-                        7. Seealpsee - Holidays at the beautiful lake seealpsee
-                        8. Lugano - Holidays with Italian and Mediterranean Touch
-                        9. Gruyères - Holidays for cheese lovers
-                        10. Grindelwald
-                        </p>
-                        <a href="">Read more</a>
-                    </div>
-                </div>
-
-                <div class="blog-box">
-                    <div class="blog-img">
-                        <img src="Img/weather.png" alt="">
-                    </div>
-                    <div class="blog-text">
-                        <span>15 June 2023</span>
-                        <a href="" class="blog-title">Weather guide</a>
-                        <p>In Switzerland, the climate is moderately continental on the plateau, with cold, dull 
-                            winters and warm summers, during which thunderstorms can break out in the afternoon.
-                            The Canton of Ticino, located on the south-facing side, has a milder and sunnier climate,
-                            though it is very rainy, with afternoon thunderstorms in summer and heavy rains in 
-                            autumn.In the mountains, the climate becomes colder with increasing altitude, but in 
-                            winter, they are located above the blanket of fog and low clouds that often covers the 
-                            plateau, so they are also sunnier in this season.</p>
-                        <a href="">Read more</a>
-                    </div>
-                </div>
-                <div class="blog-box">
-                    <div class="blog-img">
-                        <img src="Img/hikes.png" alt="">
-                    </div>
-                    <div class="blog-text">
-                        <span>10 March 2023</span>
-                        <a href="" class="blog-title">Hikes</a>
-                        <p>Everyone knows the famous Albula Pass in the canton of Grisons. However, not the colored 
-                            mountain lake located above the train station Preda, which lies at an altitude of over 
-                            1900 meters. A beautiful circular hike that is not only beautiful in summer but also 
-                            worth a top excursion in autumn. Because here you can find larches that turn gold money 
-                            in autumn. <br>Beautiful and unique hike directly along the glacier. Did you know that the 
-                            Aletsch glacier in the canton of Valais is the largest and longest glacier in the Alps? 
-                            The length of the glacier is 23km, and it has a height of 900 meters of eternal ice. 
-                            Unfortunately, the glacier melts every year by 50-80 meters, researchers predict that 
-                            by the end of 2100 the whole glacier will have disappeared. That is, save this hike and 
-                            watch it before the glacier is gone</p>
-                        <a href="">Read more</a>
-                    </div>
-                </div>
-
-                <div class="blog-box">
-                    <div class="blog-img">
-                        <img src="Img/blog-bern.png" alt="">
-                    </div>
-                    <div class="blog-text">
-                        <span>28 February 2023</span>
-                        <a href="" class="blog-title">Bern</a>
-                        <p>Not many cities have managed to retain their historic features quite as successfully as 
-                            Bern, the capital of Switzerland. The old town of Bern is a UNESCO World Heritage Site 
-                            and thanks to its 6 kilometres of arcades - the locals refer to them as 'Lauben' - 
-                            boasts on of the longest weather-sheltered shopping promenades in Europe.</p>
-                        <a href="">Read more</a>
-                    </div>
-                </div>
+                <?php endforeach; ?>
                 
 
             </div>
         </div>
-        <div class="previousNext">
-            <button class="previous"><a href="">Previous</a></button>
-            <button class="next"><a href="">Next</a></button>
+
+        <div class="addBlog">
+            <a href="view/blogsInsert.php"><button class="submit">Add your blog</button></a>
         </div>
 
         <footer>
@@ -250,6 +185,7 @@ $userId = $_SESSION['user_id'];
             sidebar.style.display = 'none';
         }
     </script>
+
     
 </body>
 </html>

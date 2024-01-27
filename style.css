@@ -303,6 +303,9 @@
     font-size: 26px;
     transition: 0.3s ease-in;
 }
+.addBlog a {
+    text-decoration: none;
+}
 .submit:hover {
     background: rgba(0, 0, 0, 0.2);
     color: green;
@@ -382,20 +385,6 @@
     transition: all ease 0.3s;
 }
 
-.previousNext {
-    color: lightskyblue;
-    display: flex;
-    justify-content: space-between;
-}
-.previousNext button {
-    width: 120px;
-    height: 35px;
-    background-color: rgb(9, 205, 139);
-}
-.previousNext a {
-    text-decoration: none;
-    padding: 30px;
-}
 /* gallery */
 #kontenti {
     display: flex ;
@@ -411,10 +400,10 @@
     height: auto;
 }
 #kontenti button{
-    border-radius: 50%;
+    border-radius: 20%;
     border-style: inherit;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     font: 10pt;
     margin-top: 10px;
     cursor: pointer;

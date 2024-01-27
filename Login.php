@@ -29,6 +29,8 @@ if (isset($_POST['submit'])) {
                 exit();
             } elseif ($user['user_type'] == 'user') {
                 $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['password'] =$user['password'];
                 header('location: home.php');
                 exit();
             } else {

@@ -25,6 +25,7 @@ if(isset($_POST['bookBtn'])) {
 
             // Insert the new booking
             $bookingRepository->insertBooking($booking);
+            $_SESSION['id'] = $booking->getId();
 
             echo "Booking arranged successfully!";
         } else {
