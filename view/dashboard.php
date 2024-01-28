@@ -47,7 +47,45 @@
     </table>
     <br>
     <br>
+    <h1>PLACES</h1>
+    <table border="1">
+             <tr>
+                 <th>ID</th>
+                 <th>EMRI</th>
+                 <th>IMAGE</th>
+                 <th>DESCRIPTION</th>
+                 <th>CMIMI</th>
+                 <th>Edit</th>
+                 <th>Delete</th>
+                 
+             </tr>
 
+             <?php 
+             include_once '../repository/placesRepository.php';
+
+             $placesRepository = new PlacesRepository();
+
+             $places = $placesRepository->getAllPlaces();
+
+             foreach($places as $place){
+                echo 
+                "
+                <tr>
+                     <td>$place[id]</td>
+                     <td>$place[emri]</td>
+                     <td>$place[image]</td>
+                     <td>$place[description]</td>
+                     <td>$place[cmimi] </td>
+                     <td><a href='placeEdit.php?id=$place[id]'>Edit</a> </td>
+                     <td><a href='placeDelete.php?id=$place[id]'>Delete</a></td>
+                     
+                </tr>
+                ";
+            }
+        ?>
+    </table>
+    <br>
+    <br>
     <h1>BOOKINGS</h1>
     <table border="1">
         <tr>

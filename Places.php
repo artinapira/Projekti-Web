@@ -6,6 +6,14 @@ if (!isset($_SESSION['user_id'])) {
     header('Location: Login.php');
     exit();
 }
+include_once __DIR__ . '../controller/placesController.php';
+include_once __DIR__ . '../repository/placesRepository.php';
+
+$userId = $_SESSION['user_id'];
+$username = $_SESSION['username'];
+
+$placesRepository = new PlacesRepository();
+$places = $placesRepository->getAllPlaces();
 
 ?>
 <!DOCTYPE html>
