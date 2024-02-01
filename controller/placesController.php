@@ -3,11 +3,11 @@ include  __DIR__ . '/../repository/placesRepository.php';
 include   __DIR__ . '/../models/places.php';
 
 if(isset($_POST['placeBtn'])){
-    if(empty($_POST['emri']) || empty($_POST['description']) || empty($_POST['cmimi'])){
+    if(empty($_POST['emri']) ||  empty($_POST['description'])||  empty($_POST['cmimi'])){
         echo "Fill all fields!";
     }else {
        
-          
+        if (isset($_SESSION['user_id'])) {
             $emri = $_POST['emri'];
             $description = $_POST['description'];
             $cmimi = $_POST['cmimi'];
@@ -15,7 +15,7 @@ if(isset($_POST['placeBtn'])){
            
             $baseUrl = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
             $baseUrl .= "://" . $_SERVER['HTTP_HOST'];
-            $targetDir = $baseUrl . "/Projekti-web/img/";
+            $targetDir = $baseUrl . "/Projekti-Web/img/";
         
             $targetFile = $targetDir . basename($_FILES["image"]["name"]);
         
@@ -43,8 +43,8 @@ if(isset($_POST['placeBtn'])){
         }
         
     }
+}
 
-   
 
    
 

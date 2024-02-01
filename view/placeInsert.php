@@ -29,11 +29,13 @@ if (!isset($_SESSION['user_id'])) {
     <br>
 
     <label for="description">Description:</label>
-    <textarea name="content" rows="19" required></textarea>
-    <br>
+    <textarea name="description" rows="4" required></textarea>
+    <br> 
+    
+    
 
     <label for="cmimi">Cmimi:</label>
-    <input type="text" name="cmimi" required>
+    <input type ="text" name="cmimi" required>
     <br>
     <input type="submit" value="Add Place" name="placeBtn">
 </form>
