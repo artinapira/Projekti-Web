@@ -14,17 +14,26 @@ $username = $_SESSION['username'];
 
 include_once __DIR__ . '../controller/blogsController.php';
 include_once __DIR__ . '../repository/blogsRepository.php';
+include_once __DIR__ . '../repository/userRepository.php';
 
 $blogRepository = new BlogRepository();
 $blogs = $blogRepository->getAllBlogs();
 
+
+// Check if the user is the author of any blog post
+$is_author = false;
+foreach ($blogs as $blog) {
+    if ($blog['user_name'] === $username) {
+        $is_author = true;
+        break;
+    }
+}
+
+$userRepository = new UserRepository();
+$userType = $userRepository->getUserTypeById($userId);
 // Check if the user is an admin
-$is_admin = $_SESSION['role'] === 'admin';
+$is_admin = $userType === 'admin';
 
-// Check if the user is the author of the blog post
-$is_author = $blog['user_id'] === $userId;
-
-// Check if the user is authorized to edit the blog post
 $can_edit = $is_admin || $is_author;
 
 ?>
@@ -118,7 +127,7 @@ $can_edit = $is_admin || $is_author;
                         <p><?php echo $blog['content']; ?></p>
                         <a href="blog_detail.php?id=<?= $blog['id']; ?>">Read more</a>
                         <?php if ($can_edit): ?>
-                        <a href="blogEdit.php?id=<?php echo $blog['id']; ?>" class="edit-btn">Edit</a>
+                        <a href="view/blogEdit.php?id=<?= $blog['id'] ?>">Edit</a>
                         <?php endif; ?>
                     </div>
                 </div>

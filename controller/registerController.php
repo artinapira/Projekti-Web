@@ -8,7 +8,7 @@ if(isset($_POST['registerBtn'])){
     }else{
         $username = $_POST['username'];
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $password = md5($_POST['password']);
         $id = $username.rand(100,999);
 
         $userRepository = new UserRepository();
