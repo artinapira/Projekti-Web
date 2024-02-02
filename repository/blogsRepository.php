@@ -75,5 +75,7 @@ class BlogRepository {
 
         echo "<script>alert('delete was successful'); </script>";
     }
+
+    
 }
 ?>

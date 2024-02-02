@@ -21,7 +21,7 @@ $place = $placesRepository->getPlaceById($placeId);
 </head>
 <body>
     <h3>Edit Places</h3>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <label for="id">Id: </label>
         <input type="text" name="id"  value="<?=$place['id']?>" readonly> <br> <br>
         <label for="emri">Emri: </label>
@@ -46,9 +46,24 @@ $place = $placesRepository->getPlaceById($placeId);
     $image = $_POST['image']; 
     $description = $_POST['description']; 
    
+    $baseUrl = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+    $baseUrl .= "://" . $_SERVER['HTTP_HOST'];
+    $targetDir = $baseUrl . "/Projekti-Web/uploads/";
 
-    $placesRepository->updatePlace($id,$emri,$cmimi,$image,$description);
-    header("location:dashboard.php");
-    
+    $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+
+    $check = getimagesize($_FILES["image"]["tmp_name"]);
+
+    if ($check !== false) {
+
+        echo "Target Dir: " . $targetDir . "<br>";
+        echo "Target File: " . $targetFile . "<br>";
+
+        // Move the uploaded file to the target directory
+        move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile);
+
+        $placesRepository->updatePlace($id,$emri,$cmimi,$targetFile,$description);
+        header("location:dashboard.php");
+    }
 }
 ?>

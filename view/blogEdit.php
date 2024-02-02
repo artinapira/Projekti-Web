@@ -19,7 +19,7 @@ $blog  = $blogRepository->getBlogById($blogId);
 </head>
 <body>
     <h3>Edit Blog</h3>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <label for="id">Id:</label>
         <input type="text" name="id"  value="<?=$blog['id']?>" readonly> <br> <br>
         <label for="user_name">Username:</label>
@@ -48,24 +48,26 @@ if(isset($_POST['editBlog'])){
     $content = $_POST['content'];
     $date = $_POST['date'];
     $editDate = date('Y-m-d H:i:s');
-    if (isset($_FILES["image"]) && !empty($_FILES["image"]["name"])) {
-        // Process the file upload
-        $targetDir = "Projekti-Web/uploads/";
-        $targetFile = $targetDir . basename($_FILES["image"]["name"]);
-    
-        // Check if the file is valid and move it to the target directory
-        if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
-            // File upload successful, continue with other operations
-        } else {
-            // Error handling for failed file upload
-        }
-    } else {
-        // Handle case where no file was uploaded
-    }
+    $baseUrl = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+    $baseUrl .= "://" . $_SERVER['HTTP_HOST'];
+    $targetDir = $baseUrl . "/Projekti-Web/uploads/";
+
+    $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+
+    $check = getimagesize($_FILES["image"]["tmp_name"]);
+
+    if ($check !== false) {
+
+        echo "Target Dir: " . $targetDir . "<br>";
+        echo "Target File: " . $targetFile . "<br>";
+
+        // Move the uploaded file to the target directory
+        move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile);
     
 
-    $blogRepository->updateBlog($id,$user_name,$title,$content,$targetFile,$date,$editDate);
-    header("location:dashboard.php");
+        $blogRepository->updateBlog($id,$user_name,$title,$content,$targetFile,$date,$editDate);
+        header("location:../Blogs.php");
+    }
 }
 
 
