@@ -21,20 +21,12 @@ $blogs = $blogRepository->getAllBlogs();
 
 
 // Check if the user is the author of any blog post
-$is_author = false;
-foreach ($blogs as $blog) {
-    if ($blog['user_name'] === $username) {
-        $is_author = true;
-        break;
-    }
-}
+
 
 $userRepository = new UserRepository();
 $userType = $userRepository->getUserTypeById($userId);
 // Check if the user is an admin
-$is_admin = $userType === 'admin';
 
-$can_edit = $is_admin || $is_author;
 
 ?>
 <!DOCTYPE html>
@@ -126,7 +118,7 @@ $can_edit = $is_admin || $is_author;
                         <a href="" class="blog-title"><?php echo $blog['title']; ?></a>
                         <p><?php echo $blog['content']; ?></p>
                         <a href="blog_detail.php?id=<?= $blog['id']; ?>">Read more</a>
-                        <?php if ($can_edit): ?>
+                        <?php if ($userType === 'admin' || $blog['user_name'] === $username): ?>
                         <a href="view/blogEdit.php?id=<?= $blog['id'] ?>">Edit</a>
                         <?php endif; ?>
                     </div>
