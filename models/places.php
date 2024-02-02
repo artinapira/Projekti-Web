@@ -1,46 +1,49 @@
 <?php
-class Places{
+
+class Places {
     private $id;
     private $emri;
+    private $cmimi;
     private $image;
     private $description;
-    private $cmimi;
-   function __construct($id,$emri,$image,$description, $cmimi){
+    
+    function __construct($id,$emri,$cmimi,$image,$description){
 
-    $this->id= $id;
-    $this->emri = $emri;
-    $this->image = $image;
-    $this->description = $description;
-    $this->cmimi = $cmimi;
+        $this->id= $id;
+        $this->emri = $emri;
+        $this->cmimi = $cmimi;
+        $this->image = $image;
+        $this->description = $description;
     }
+
     function getId(){
-      return $this->id;
+        return $this->id;
     }
     function getEmri(){
-      return $this->emri;
-    }
-    function getImage(){
-      return $this->image;
-    }
-    function getDescription(){
-      return $this->description;
+        return $this->emri;
     }
     function getCmimi(){
-      return $this->cmimi;
+        return $this->cmimi;
+    }
+    function getImage(){
+        return $this->image;
+    }
+    function getDescription(){
+        return $this->description;
     }
     function setEmri($emri){
-      $this->emri =$emri;
+        $this->emri =$emri;
     }
     function setImage($image){
-      $this->image =$image;
-   }
-   function setDescription($description){
-      $this->description =$description;
-   }
-    function  setCmimi($cmimi){
-      $this->cmimi=$cmimi;
+        $this->image =$image;
     }
-   
+    function setDescription($description){
+        $this->description =$description;
+    }
+    function  setCmimi($cmimi){
+        $this->cmimi=$cmimi;
+    }
 }
+
 
 ?>

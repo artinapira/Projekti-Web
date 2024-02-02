@@ -97,7 +97,42 @@ class UserRepository{
         return ($user !== false);
     }
 
+    function updateUserType($id, $newUserType) {
+        $conn = $this->connection;
+
+        // Prepare and execute the SQL statement
+        $sql = "UPDATE users SET user_type = ? WHERE id = ?";
+        $statement = $conn->prepare($sql);
+        $statement->execute([$newUserType, $id]);
+
+        // Check if the update was successful
+        if ($statement->rowCount() > 0) {
+            return true; // Update successful
+        } else {
+            return false; // No rows updated. User not found or user type already set to $newUserType
+        }
+    }
+
+    function getUserTypeById($id) {
+        $conn = $this->connection;
+
+        $sql = "SELECT user_type FROM users WHERE id = ?";
+        $statement = $conn->prepare($sql);
+        $statement->execute([$id]);
+
+        $userType = $statement->fetchColumn();
+
+        return $userType;
+    }
+
 }
+
+$userRepository = new UserRepository();
+$userId = 13; 
+$newUserType = 'admin'; // The new user type
+$updateSuccess = $userRepository->updateUserType($userId, $newUserType);
+
+
 
 //  $userRepo = new UserRepository;
 

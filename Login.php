@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-
 include_once 'controller/registerController.php';
 include_once 'models/user.php';
 include_once 'repository/userRepository.php';
@@ -20,28 +19,29 @@ if (isset($_POST['submit'])) {
             $userExists = true;
 
             var_dump($user);
-
-            $userType = str_replace("'", "", $user['user_type']);
+            $userRepo = new UserRepository();
+            $usertype = $userRepo->getUserTypeById($user['id']);
+            $is_admin = $usertype === 'admin';
             // Check the user type
-            if ($user['user_type'] == 'admin') {
-                $_SESSION['admin_id'] = $user['id'];
-                header('location: admin_destinations.php');
-                exit();
-            } elseif ($user['user_type'] == 'user') {
+            // Check the user role retrieved from the database
+            if ($is_admin) {
+                // Redirect to admin page
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
-                $_SESSION['password'] =$user['password'];
+                $_SESSION['password'] = $user['password'];
+                $_SESSION['user_type'] = $user['user_type'];
                 header('location: home.php');
                 exit();
             } else {
-                $message[] = 'Invalid user type: ' . $user['user_type'];
-            }
-            break; // Break out of the loop once the user is found
+                // Redirect to home page for regular users
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['password'] = $user['password'];
+                $_SESSION['user_type'] = $user['user_type'];
+                header('location: home.php');
+                exit();
+            } 
         }
-    }
-
-    if (!$userExists) {
-        $message[] = 'Invalid username or password!';
     }
 }
 ?>

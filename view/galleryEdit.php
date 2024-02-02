@@ -20,7 +20,9 @@ $gallery  = $galleryRepository->getGalleryById($galleryId);
 <body>
     <h3>Edit Photo</h3>
     <form action="" method="post" enctype="multipart/form-data">
+        <label for="id">Id: </label>
         <input type="text" name="id"  value="<?=$gallery['id']?>" readonly> <br> <br>
+        <label for="image">Image: </label>
         <input type="file" name="image"  value="<?=$gallery['image']?>"> <br> <br>
 
         <input type="submit" name="editPic" value="save"> <br> <br>

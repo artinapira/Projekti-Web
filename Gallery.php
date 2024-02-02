@@ -42,7 +42,7 @@ $galleries = $galleryRepository->getAllGallery();
                     <li><a href="Book.php">Book</a></li>
                     <li><a href="Services.php">Services</a></li>
                     <li><a href="Gallery.php">Gallery</a></li>
-                    <li><a href="Login.php"><button>Log in</button></a></li>
+                    <li><a href="Logout.php"><button>Log out</button></a></li>
                     <li><input type="search" placeholder="Search places"><a href=""><button>Search</button></a></li>
                 </ul>
                 
@@ -60,7 +60,7 @@ $galleries = $galleryRepository->getAllGallery();
             </div>
 
             <div class="login">
-                <a href="Login.php"><button>Log in</button></a>
+                <a href="Logout.php"><button>Log out</button></a>
             </div>
             
             <div class="search">

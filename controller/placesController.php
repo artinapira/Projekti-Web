@@ -15,22 +15,22 @@ if(isset($_POST['placeBtn'])){
            
             $baseUrl = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
             $baseUrl .= "://" . $_SERVER['HTTP_HOST'];
-            $targetDir = $baseUrl . "/Projekti-web/img/";
-        
+            $targetDir = $baseUrl . "/Projekti-Web/uploads/";
+
             $targetFile = $targetDir . basename($_FILES["image"]["name"]);
-        
+
             $check = getimagesize($_FILES["image"]["tmp_name"]);
         
             if ($check !== false){
         
                 echo "Target Dir: " . $targetDir . "<br>";
                 echo "Target File: " . $targetFile . "<br>";
-        
+
                 // Move the uploaded file to the target directory
                 move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile);
             
 
-                $place = new Places($id, $emri,$targetFile,$description, $cmimi);
+                $place = new Places($id, $emri,$cmimi,$targetFile,$description);
 
                 $placesRepository = new PlacesRepository();
                 $placesRepository->insertPlace($place);

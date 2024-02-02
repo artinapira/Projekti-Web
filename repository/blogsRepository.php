@@ -54,6 +54,7 @@ class BlogRepository {
     function updateBlog($id,$user_name,$title,$content,$image,$date,$editDate){
         $conn = $this->connection;
 
+
         $sql = "UPDATE blog SET title=?, content=?, image=?, date=?, editDate=? WHERE id=? AND user_name=?";
 
         $statement = $conn->prepare($sql);

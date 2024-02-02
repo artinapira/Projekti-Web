@@ -7,6 +7,11 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
+include_once 'repository/userRepository.php';
+
+$userRepository = new UserRepository();
+$userId = $_SESSION['user_id'];
+$userType = $userRepository->getUserTypeById($userId);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +43,12 @@ if (!isset($_SESSION['user_id'])) {
                     <li><a href="Gallery.php">Gallery</a></li>
                     <li><a href="Logout.php"><button>Log out</button></a></li>
                     <li><input type="search" placeholder="Search places"><a href=""><button>Search</button></a></li>
+                    <li><?php if ($userType === 'admin'): ?>
+                        <br>
+                        <a href="view/dashboard.php"><button>Go to Dashboard</button></a>
+                        <?php endif; ?>
+                       
+                        </li>
                 </ul>
                 
             </div>       
@@ -70,6 +81,12 @@ if (!isset($_SESSION['user_id'])) {
 
         </div>
 
+        <div class="login">
+            <?php if ($userType === 'admin'): ?>
+                <br>
+            <a href="view/dashboard.php"><button>Go to Dashboard</button></a>
+            <?php endif; ?>
+            </div>
         <div class="content">
             <div class="paragraphs">
                 <h1 class="paragraph1">Discover top <span id="hikes">hikes</span> in Switzerland <br> and tips about vacations.</h1>

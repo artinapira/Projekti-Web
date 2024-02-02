@@ -17,11 +17,11 @@
             $description = $place->getDescription();
             $cmimi = $place->getCmimi();
 
-            $sql = "INSERT INTO places (id,emri,image,description,cmimi) VALUES (?,?,?,?,?)";
+            $sql = "INSERT INTO places (id,emri,cmimi,image,description) VALUES (?,?,?,?,?)";
 
             $statement = $conn->prepare($sql);
 
-            $statement->execute([$id,$emri,$image,$description,$cmimi]);
+            $statement->execute([$id,$emri,$cmimi,$image,$description]);
 
             echo "<script> alert('Place has been inserted successfuly!'); </script>";
         }
@@ -55,14 +55,14 @@
            return $place;
         }
     
-        function updatePlace($id, $emri,$image,$description, $cmimi){
+        function updatePlace($id, $emri,$cmimi,$image,$description){
             $conn = $this->connection;
 
-            $sql = "UPDATE places SET emri=?, image=?, description=?, cmimi=? WHERE id=?";
+            $sql = "UPDATE places SET emri=?, cmimi=?, image=?, description=?  WHERE id=?";
 
             $statement = $conn->prepare($sql);
             
-            $statement->execute([$emri,$image,$description,$cmimi,$id]);
+            $statement->execute([$emri,$cmimi,$image,$description,$id]);
 
 
             echo "<script>alert('update was successful'); </script>";

@@ -18,6 +18,15 @@ include_once __DIR__ . '../repository/blogsRepository.php';
 $blogRepository = new BlogRepository();
 $blogs = $blogRepository->getAllBlogs();
 
+// Check if the user is an admin
+$is_admin = $_SESSION['role'] === 'admin';
+
+// Check if the user is the author of the blog post
+$is_author = $blog['user_id'] === $userId;
+
+// Check if the user is authorized to edit the blog post
+$can_edit = $is_admin || $is_author;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +59,7 @@ $blogs = $blogRepository->getAllBlogs();
                     <li><a href="Book.php">Book</a></li>
                     <li><a href="Services.php">Services</a></li>
                     <li><a href="Gallery.php">Gallery</a></li>
-                    <li><a href="Login.php"><button>Log in</button></a></li>
+                    <li><a href="Logout.php"><button>Log out</button></a></li>
                     <li><input type="search" placeholder="Search places"><a href=""><button>Search</button></a></li>
                 </ul>
                 
@@ -68,7 +77,7 @@ $blogs = $blogRepository->getAllBlogs();
             </div>
 
             <div class="login">
-                <a href="Login.php"><button>Log in</button></a>
+                <a href="Logout.php"><button>Log out</button></a>
             </div>
 
             <div class="search">
@@ -101,13 +110,16 @@ $blogs = $blogRepository->getAllBlogs();
                     </div>
                     <div class="blog-text">
                         <span>Date: <?php echo $blog['date']; ?></span>
-                        <?php if (!empty($blog['edit_date'])): ?>
-                        <span>Last Edited: <?php echo $blog['edit_date']; ?></span>
+                        <?php if (!empty($blog['editDate'])): ?>
+                        <span>Last Edited: <?php echo $blog['editDate']; ?></span>
                         <?php endif; ?>
                         <span>Added by: <?php echo $blog['user_name']; ?></span>
                         <a href="" class="blog-title"><?php echo $blog['title']; ?></a>
                         <p><?php echo $blog['content']; ?></p>
-                        <a href="">Read more</a>
+                        <a href="blog_detail.php?id=<?= $blog['id']; ?>">Read more</a>
+                        <?php if ($can_edit): ?>
+                        <a href="blogEdit.php?id=<?php echo $blog['id']; ?>" class="edit-btn">Edit</a>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <?php endforeach; ?>
