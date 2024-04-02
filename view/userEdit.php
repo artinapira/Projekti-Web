@@ -1,14 +1,10 @@
 
 <?php
-$userId = $_GET['id'];
 include_once '../repository/userRepository.php';
-
-
 
 $userRepository = new UserRepository();
 
-$user  = $userRepository->getUserById($userId);
-
+$user  = $userRepository->getUserById($_GET['id']);
 
 ?>
 

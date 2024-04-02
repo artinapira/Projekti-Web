@@ -28,7 +28,6 @@ class UserRepository{
 
         echo "<script> alert('User has been inserted successfuly!'); </script>";
 
-        header("location:login.php");
 
     }
 
@@ -50,10 +49,6 @@ class UserRepository{
 
         $statement = $conn->query($sql);
         $user = $statement->fetch();
-
-        if ($user && isset($user['user_type'])) {
-            $user['user_type'] = trim($user['user_type'], "'");
-        }
 
         return $user;
     }

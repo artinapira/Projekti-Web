@@ -9,7 +9,7 @@ if(isset($_POST['registerBtn'])){
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = md5($_POST['password']);
-        $id = $username.rand(100,999);
+        $id = rand(100,999);
 
         $userRepository = new UserRepository();
 
@@ -21,8 +21,9 @@ if(isset($_POST['registerBtn'])){
 
             // Insert the new user
             $userRepository->insertUser($user);
-
+            $_SESSION['id'] = $user->getId();
             echo "User registered successfully!";
+            header("location: Login.php");
         }
 
 

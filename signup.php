@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,9 +65,9 @@
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 
     <script>
-        let usernameRegex = /^[A-Z][a-z]{7,15}$/;
+        let usernameRegex = /^[A-Z]+[a-z]{7,15}$/;
         let emailRegex = /[a-zA-Z0-9._-]+@+[a-z]+\.+[a-z]{3}/;
-        let passwordRegex = /[a-zA-Z]{8,15}/;
+        let passwordRegex = /[a-zA-Z0-9]{8,15}/;
 
         function validateForm() {
             let usernameInput = document.getElementById('username');

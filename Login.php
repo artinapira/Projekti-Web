@@ -7,7 +7,7 @@ include_once 'repository/userRepository.php';
 
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
 
     $userRepository = new UserRepository();
     $users = $userRepository->getAllUsers();

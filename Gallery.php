@@ -151,33 +151,33 @@ $galleries = $galleryRepository->getAllGallery();
             sidebar.style.display = 'none';
         }
         document.addEventListener('DOMContentLoaded', function() {
-        let images = document.querySelectorAll('.gallery-image');
-        let currentIndex = 0;
+            let images = document.querySelectorAll('.gallery-image');
+            let currentIndex = 0;
 
-        function showImage(index) {
-            images.forEach(function(image) {
-                image.style.display = 'none';
-            });
-            images[index].style.display = 'block';
-        }
+            function showImage(index) {
+                images.forEach(function(image) {
+                    image.style.display = 'none';
+                });
+                images[index].style.display = 'block';
+            }
 
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+                showImage(currentIndex);
+            }
+
+            function prevImage() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage(currentIndex);
+            }
+
+            // Show the first image when the page loads
             showImage(currentIndex);
-        }
 
-        function prevImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            showImage(currentIndex);
-        }
-
-        // Show the first image when the page loads
-        showImage(currentIndex);
-
-        // Add event listeners to the Next and Previous buttons
-        document.querySelector('#nextBtn').addEventListener('click', nextImage);
-        document.querySelector('#prevBtn').addEventListener('click', prevImage);
-    });
+            // Add event listeners to the Next and Previous buttons
+            document.querySelector('#nextBtn').addEventListener('click', nextImage);
+            document.querySelector('#prevBtn').addEventListener('click', prevImage);
+        });
     </script>
 </body>
 </html>

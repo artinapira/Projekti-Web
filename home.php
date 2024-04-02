@@ -112,7 +112,7 @@ $userType = $userRepository->getUserTypeById($userId);
                     <br>
                     <p><a href="#">Terms & Conditions</a></p>
                     <br>
-                    <p><a href="#">Contact Us</a></p>
+                    <p><a href="view/insertContactUs.php">Contact Us</a></p>
                 </div>
             </div>
             <div class="center box">

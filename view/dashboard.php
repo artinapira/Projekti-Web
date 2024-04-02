@@ -1,3 +1,12 @@
+<?php
+session_start();
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to the login page if not logged in
+    header('Location: ../Login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -162,8 +171,8 @@
                 echo 
                 "
                 <tr>
-                    <td>$blog[id]</td>
-                    <td>$blog[image]</td>
+                    <td>$gallery[id]</td>
+                    <td>$gallery[image]</td>
                     <td><a href='galleryEdit.php?id=$gallery[id]'>Edit</a> </td>
                     <td><a href='galleryDelete.php?id=$gallery[id]'>Delete</a></td>
                      
@@ -210,6 +219,48 @@
                     <td>$place[description]</td>
                     <td><a href='placesEdit.php?id=$place[id]'>Edit</a> </td>
                     <td><a href='placesDelete.php?id=$place[id]'>Delete</a></td>
+                     
+                </tr>
+                ";
+            }
+
+             
+             
+        ?>
+    </table>
+
+    <br>
+    <br>
+    <h1>Contact Us</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>USERNAME</th>
+            <th>PHONE</th>
+            <th>MESSAGE</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th><a href="insertContactUs.php">Insert</a></th>
+                 
+        </tr>
+
+        <?php 
+            include_once '../repository/contactUsRepository.php';
+
+            $contactUsRepository = new ContactUsRepository();
+
+            $contactUs = $contactUsRepository->getAllContactUs();
+
+            foreach($contactUs as $message){
+                echo 
+                "
+                <tr>
+                    <td>$message[id]</td>
+                    <td>$message[username]</td>
+                    <td>$message[phone]</td>
+                    <td>$message[message]</td>
+                    <td><a href='contactUsEdit.php?id=$message[id]'>Edit</a> </td>
+                    <td><a href='contactUsDelete.php?id=$message[id]'>Delete</a></td>
                      
                 </tr>
                 ";
